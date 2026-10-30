@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "start": "npm run build:css && npx http-server . -p 3000 -a 0.0.0.0 -c-1 --gzip"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

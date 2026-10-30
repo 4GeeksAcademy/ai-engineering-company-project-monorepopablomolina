@@ -59,16 +59,22 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Run the carrier selector UI
+## Run the TrackFlow website (Milestone 1)
 
-Static UI in `uis/carrier-selector/` (HTML + Tailwind via CDN):
+Static site at the repo root (`index.html`, `application.html`, `validation.js`, `nav.js`; HTML + Tailwind compiled locally to `dist/styles.css`), specified in [`BRIEFING.md`](./BRIEFING.md):
 
 ```bash
-cd uis/carrier-selector
-npm start   # runs: npx http-server . -p 3000 -a 0.0.0.0
+npm install   # first time only
+npm start     # runs: npm run build:css && npx http-server . -p 3000 -a 0.0.0.0 -c-1 --gzip
 ```
 
 Then open `http://localhost:3000` (in Codespaces: **Ports** tab → port 3000 → globe icon).
+
+> **Tailwind is compiled, not loaded from a CDN.** Run `npm run build:css` whenever you add or change Tailwind classes in the HTML or JS files (`npm start` already does it). The output, `dist/styles.css`, is committed so the site also works without a build.
+
+### Low-volume warning decision
+
+The request form warns "Para volúmenes menores a 100 envíos mensuales, nuestros servicios podrían no ser la solución más eficiente. ¿Seguro que quieres continuar?" when the monthly volume is `0-100` **and** the product type is **Moda, Electrónica or Cosmética**. These are TrackFlow's target verticals, so a small seller there is a likely mismatch worth confirming. `Alimentación` and `Otro` do not trigger it, since the brief does not list them as target segments and we cannot judge relevance. The user can still confirm and submit.
 
 ---
 
