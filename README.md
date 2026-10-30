@@ -59,6 +59,19 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
+## Run the carrier selector UI
+
+Static UI in `uis/carrier-selector/` (HTML + Tailwind via CDN):
+
+```bash
+cd uis/carrier-selector
+npm start   # runs: npx http-server . -p 3000 -a 0.0.0.0
+```
+
+Then open `http://localhost:3000` (in Codespaces: **Ports** tab → port 3000 → globe icon).
+
+---
+
 ## Folder guide — what goes where
 
 Read the linked `README.md` inside each folder before you start coding there.

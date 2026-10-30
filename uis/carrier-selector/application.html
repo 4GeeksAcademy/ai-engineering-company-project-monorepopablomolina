@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrackFlow — Solicitud de envío</title>
+    <meta
+      name="description"
+      content="Formulario de solicitud de envío de TrackFlow para obtener la recomendación de transportista según destino, peso y urgencia."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='navy'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-blue-800 focus:outline focus:outline-2 focus:outline-blue-700"
+      >Saltar al contenido</a
+    >
+    <header class="border-b border-slate-200 bg-white">
+      <div
+        class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6"
+      >
+        <a href="index.html" class="text-xl font-bold text-slate-900"
+          >TrackFlow</a
+        >
+        <nav aria-label="Navegación principal">
+          <a
+            href="index.html"
+            class="text-sm font-medium text-blue-700 hover:underline"
+            >Volver al inicio</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main
+      id="contenido"
+      tabindex="-1"
+      class="mx-auto max-w-3xl px-4 py-8 focus:outline-none sm:px-6 lg:py-12"
+    >
+      <h1
+        id="form-titulo"
+        class="text-2xl font-bold text-slate-900 sm:text-3xl"
+      >
+        Solicitud de envío
+      </h1>
+      <p class="mt-2 text-slate-600">
+        Indica origen, destino, peso y urgencia para obtener la recomendación
+        de transportista. Los campos con
+        <span class="font-semibold text-red-600" aria-hidden="true">*</span>
+        son obligatorios.
+      </p>
+
+      <form
+        id="shipment-form"
+        action="#"
+        method="post"
+        aria-labelledby="form-titulo"
+        novalidate
+        class="mt-8 space-y-6"
+      >
+        <fieldset
+          class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
+        >
+          <legend class="px-2 text-lg font-semibold text-slate-900">
+            Origen y destino
+          </legend>
+          <div class="grid gap-x-6 gap-y-4 sm:grid-cols-2">
+            <div>
+              <label for="origen" class="block text-sm font-medium text-slate-700"
+                >Origen (almacén)
+                <span class="text-red-600" aria-hidden="true">*</span></label
+              >
+              <select
+                id="origen"
+                name="origen"
+                required
+                aria-describedby="origen-error"
+                class="mt-1 block w-full rounded-md border border-slate-500 bg-white px-3 py-2 text-base shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600 data-[valid=true]:border-green-700"
+              >
+                <option value="">Selecciona un almacén</option>
+                <option value="Los Ángeles">Los Ángeles</option>
+                <option value="Zaragoza">Zaragoza</option>
+              </select>
+              <p
+                id="origen-error"
+                aria-live="polite"
+                class="mt-1 min-h-5 text-sm text-red-600"
+              ></p>
+            </div>
+
+            <div>
+              <label
+                for="paisDestino"
+                class="block text-sm font-medium text-slate-700"
+                >País de destino
+                <span class="text-red-600" aria-hidden="true">*</span></label
+              >
+              <select
+                id="paisDestino"
+                name="paisDestino"
+                required
+                aria-describedby="paisDestino-error"
+                class="mt-1 block w-full rounded-md border border-slate-500 bg-white px-3 py-2 text-base shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600 data-[valid=true]:border-green-700"
+              >
+                <option value="">Selecciona un país</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="España">España</option>
+              </select>
+              <p
+                id="paisDestino-error"
+                aria-live="polite"
+                class="mt-1 min-h-5 text-sm text-red-600"
+              ></p>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="direccionDestino"
+                class="block text-sm font-medium text-slate-700"
+                >Dirección de destino
+                <span class="text-red-600" aria-hidden="true">*</span></label
+              >
+              <input
+                type="text"
+                id="direccionDestino"
+                name="direccionDestino"
+                required
+                autocomplete="street-address"
+                placeholder="Calle, número, ciudad y código postal"
+                aria-describedby="direccionDestino-error"
+                class="mt-1 block w-full rounded-md border border-slate-500 bg-white px-3 py-2 text-base shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600 data-[valid=true]:border-green-700"
+              />
+              <p
+                id="direccionDestino-error"
+                aria-live="polite"
+                class="mt-1 min-h-5 text-sm text-red-600"
+              ></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset
+          class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6"
+        >
+          <legend class="px-2 text-lg font-semibold text-slate-900">
+            Características del envío
+          </legend>
+          <div class="grid gap-x-6 gap-y-4 sm:grid-cols-2">
+            <div>
+              <label
+                for="pesoKg"
+                class="block text-sm font-medium text-slate-700"
+                >Peso del paquete (kg)
+                <span class="text-red-600" aria-hidden="true">*</span></label
+              >
+              <input
+                type="number"
+                id="pesoKg"
+                name="pesoKg"
+                required
+                min="0.1"
+                max="70"
+                step="0.1"
+                inputmode="decimal"
+                placeholder="Ej. 2.5"
+                aria-describedby="pesoKg-error"
+                class="mt-1 block w-full rounded-md border border-slate-500 bg-white px-3 py-2 text-base shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600 data-[valid=true]:border-green-700"
+              />
+              <p
+                id="pesoKg-error"
+                aria-live="polite"
+                class="mt-1 min-h-5 text-sm text-red-600"
+              ></p>
+            </div>
+
+            <div>
+              <label
+                for="urgencia"
+                class="block text-sm font-medium text-slate-700"
+                >Urgencia
+                <span class="text-red-600" aria-hidden="true">*</span></label
+              >
+              <select
+                id="urgencia"
+                name="urgencia"
+                required
+                aria-describedby="urgencia-error"
+                class="mt-1 block w-full rounded-md border border-slate-500 bg-white px-3 py-2 text-base shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600 data-[valid=true]:border-green-700"
+              >
+                <option value="">Selecciona la urgencia</option>
+                <option value="Estándar">Estándar</option>
+                <option value="Express">Express</option>
+                <option value="Same Day">Same Day</option>
+              </select>
+              <p
+                id="urgencia-error"
+                aria-live="polite"
+                class="mt-1 min-h-5 text-sm text-red-600"
+              ></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+          <button
+            type="reset"
+            class="rounded-md border border-slate-500 bg-white px-6 py-3 text-base font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            Limpiar
+          </button>
+          <button
+            type="submit"
+            class="rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            Enviar
+          </button>
+        </div>
+
+        <div
+          id="form-status"
+          role="status"
+          aria-live="polite"
+          class="rounded-md border border-green-600 bg-green-50 p-4 text-green-800 empty:hidden"
+        ></div>
+      </form>
+    </main>
+
+    <script src="validation.js" defer></script>
+  </body>
+</html>
