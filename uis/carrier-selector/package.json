@@ -1,0 +1,9 @@
+{
+  "name": "carrier-selector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UI estática del selector de transportista de TrackFlow",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -a 0.0.0.0"
+  }
+}
